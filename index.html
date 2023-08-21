@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Area Calculation</title>
+  </head>
+  <body class="max-w-screen-xl mx-auto">
+    <header class="m-3">
+      <div
+        class="flex justify-between py-3 px-9 rounded items-center bg-sky-200"
+      >
+        <div>
+          <h2>Interactive</h2>
+          <p>Geometry Genius</p>
+        </div>
+        <button class="btn btn-info btn-sm">Blog</button>
+      </div>
+    </header>
+    <main class="m-3">
+      <section>
+        <!-- container  -->
+        <div class="flex flex-col lg:flex-row gap-9">
+          <!-- shape container -->
+          <div
+            class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          >
+            <!-- card 1 : Traingle-->
+            <div class="bg-base-100 shadow-xl rounded-xl bg-cyan-300 max-w-md">
+              <figure class="px-10 pt-10 flex justify-center">
+                <img src="/images/triangle.png" alt="Shoes" />
+              </figure>
+              <div class="card-body items-center text-center">
+                <h2 class="card-title">Triangle</h2>
+                <p>Area(A) = 0.5 * b * h</p>
+                <p>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="base"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="triangle-Base"
+                  />
+                  <span>cm</span>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="height"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="triangle-Height"
+                  />
+                  <span>cm</span>
+                </p>
+                <p class="font-serif">
+                  Triangle Area :
+                  <span id="triangle-area" class="font-bold"></span>cm
+                  <sup>2</sup>
+                </p>
+                <div class="card-actions">
+                  <button onclick="area ()" class="btn btn-info w-full px-12">
+                    Calculate Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- card 2 :Rectangle  -->
+            <div class="bg-base-100 shadow-xl rounded-xl bg-cyan-300 max-w-md">
+              <figure class="px-10 pt-10 flex justify-center">
+                <img src="images/rectangle.png" alt="Shoes" />
+              </figure>
+              <div class="card-body items-center text-center">
+                <h2 class="card-title my-1">Rectangle</h2>
+                <p>Area(A) = W * H</p>
+                <p class="mt-2">
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="width"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="rectangle-width"
+                  />
+                  <span>cm</span>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="height"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="rectangle-Height"
+                  />
+                  <span>cm</span>
+                </p>
+                <p class="font-serif mt-4">
+                  Rectangle Area :
+                  <span id="rectangle-area" class="font-bold">0 </span>cm
+                  <sup>2</sup>
+                </p>
+                <div class="card-actions my-3">
+                  <button
+                    onclick="rectangleArea ()"
+                    class="btn btn-info w-full px-12"
+                  >
+                    Calculate Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- card 3 :Prallelogram-->
+            <div class="bg-base-100 shadow-xl rounded-xl bg-cyan-300 max-w-md">
+              <figure class="px-10 pt-10 flex justify-center">
+                <img src="images/parallelogram.png" alt="Shoes" />
+              </figure>
+              <div class="card-body items-center text-center">
+                <h2 class="card-title my-1">Parallelogram</h2>
+                <p>Area(A) = B * H</p>
+                <p class="mt-2">
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="base"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="parallelogram-base"
+                  />
+                  <span>cm</span>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="height"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="parallelogram-height"
+                  />
+                  <span>cm</span>
+                </p>
+                <p class="font-serif mt-4">
+                  Parallelogram Area :
+                  <span id="parallelogram-area" class="font-bold">0 </span
+                  >cm<sup>2</sup>
+                </p>
+                <div class="card-actions my-3">
+                  <button
+                    onclick="parallelogramArea ()"
+                    class="btn w-full btn-info px-12"
+                  >
+                    Calculate Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- card 4 :Rhombus-->
+            <div class="bg-base-100 shadow-xl rounded-xl bg-cyan-300 max-w-md">
+              <figure class="px-10 pt-10 flex justify-center">
+                <img src="images/rhombus.png" alt="" />
+              </figure>
+              <div class="card-body items-center text-center">
+                <h2 class="card-title my-1">Rhombus</h2>
+                <p>Area(A) = B * H</p>
+                <p class="mt-2">
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="d-1"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="major-diagonal"
+                  />
+                  <span>cm</span>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="d-2"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="minor-diagonal"
+                  />
+                  <span>cm</span>
+                </p>
+                <p class="font-serif mt-4">
+                  Parallelogram Area :
+                  <span id="rhombus-area" class="font-bold">0 </span>cm<sup
+                    >2</sup
+                  >
+                </p>
+                <div class="card-actions my-3">
+                  <button
+                    onclick="rhombusArea ()"
+                    class="btn btn-info w-full px-12"
+                  >
+                    Calculate Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- card 5 :Pentagon-->
+            <div class="bg-base-100 shadow-xl rounded-xl bg-cyan-300 max-w-md">
+              <figure class="px-10 pt-10 flex justify-center">
+                <img src="images/pentagon.png" alt="" class="" />
+              </figure>
+              <div class="card-body items-center text-center">
+                <h2 class="card-title my-1">Pentagon</h2>
+                <p>Area(A) =0.5 * s * l</p>
+                <p class="mt-2">
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="side"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="pentagon-side"
+                  />
+                  <span>cm</span>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="length"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="pentagon-length"
+                  />
+                  <span>cm</span>
+                </p>
+                <p class="font-serif mt-4">
+                  Pentagon Area :
+                  <span id="pentagon-area" class="font-bold">0 </span>cm<sup
+                    >2</sup
+                  >
+                </p>
+                <div class="card-actions my-3">
+                  <button
+                    onclick="pentagonArea ()"
+                    class="btn btn-info w-full px-12"
+                  >
+                    Calculate Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- card 6 Ellipse-->
+            <div class="bg-base-100 shadow-xl rounded-xl bg-[#FBBCED] max-w-md">
+              <figure class="px-10 pt-10 flex justify-center">
+                <img src="images/ellipse.png" alt="" class="" />
+              </figure>
+              <div class="card-body items-center text-center">
+                <h2 class="card-title my-1">Ellipse</h2>
+                <p>Area(A) = π ab</p>
+                <p class="mt-2">
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="radious-1"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="minor-radious"
+                  />
+                  <span>cm</span>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="radious-2"
+                    class="bg-gray-300 border border-black rounded w-[70px] px-2"
+                    id="major-radious"
+                  />
+                  <span>cm</span>
+                </p>
+                <p class="font-serif mt-4">
+                  Ellipse Area :
+                  <span id="ellipse-area" class="font-bold">0 </span>cm<sup
+                    >2</sup
+                  >
+                </p>
+                <div class="card-actions my-3">
+                  <button
+                    onclick="ellipseArea ()"
+                    class="btn btn-info w-full px-12"
+                  >
+                    Calculate Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- area calculator -->
+          <div class="md:w-[400px] h-[500px] border-2 border-black rounded-xl">
+            <div class="text-4xl text-center mt- underline underline-offset-4">
+              Area Calculator
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      // taingle area
+      function area() {
+        const getBase = document.getElementById("triangle-Base");
+        const baseStringValue = getBase.value;
+        baseValue = parseFloat(baseStringValue);
+
+        const getHeight = document.getElementById("triangle-Height");
+        const heightStringValue = getHeight.value;
+        heightValue = parseFloat(heightStringValue);
+
+        const area = 0.5 * baseValue * heightValue;
+
+        const areaId = document.getElementById("triangle-area");
+        const areaIdValue = parseFloat(areaId.value);
+        areaId.textContent = area;
+      }
+      // ractangle area
+      function rectangleArea() {
+        const getWidth = document.getElementById("rectangle-width");
+        const widthStringValue = getWidth.value;
+        widthValue = parseFloat(widthStringValue);
+
+        const getHeight = document.getElementById("rectangle-Height");
+        const heightStringValue = getHeight.value;
+        heightValue = parseFloat(heightStringValue);
+
+        const rectangleArea = widthValue * heightValue;
+
+        const getRectangleElement = document.getElementById("rectangle-area");
+        const areaValue = parseFloat(getRectangleElement.innerText);
+        getRectangleElement.innerText = rectangleArea;
+      }
+
+      // parallelogram area
+      function parallelogramArea() {
+        const base = getInputValue("parallelogram-base");
+        console.log(base);
+        const height = getInputValue("parallelogram-height");
+        console.log(height);
+
+        const area = base * height;
+
+        setElementInnerText("parallelogram-area", area);
+      }
+
+      //Rhombus area
+      function rhombusArea() {
+        const diagonalMajor = getInputValue("major-diagonal");
+        const diagonalMinor = getInputValue("minor-diagonal");
+
+        const area = 0.5 * diagonalMajor * diagonalMinor;
+
+        setElementInnerText("rhombus-area", area);
+      }
+      //Pentagon area
+      function pentagonArea() {
+        const side = getInputValue("pentagon-side");
+        const length = getInputValue("pentagon-length");
+        const area = 0.5 * side * length;
+        setElementInnerText("pentagon-area", area);
+      }
+      // Ellipsev Area
+      function ellipseArea() {
+        const majorRadious = getInputValue("major-radious");
+        const minorRadious = getInputValue("minor-radious");
+        const area = 3.1416 * majorRadious * minorRadious;
+        setElementInnerText("ellipse-area", area);
+      }
+      //reuseable  common function
+      function getInputValue(fieldId) {
+        const inputValue = document.getElementById(fieldId);
+        const inputStrValue = inputValue.value;
+        const value = parseFloat(inputStrValue);
+        return value;
+      }
+
+      //reuseable function
+      function setElementInnerText(elementId, area) {
+        const element = document.getElementById(elementId);
+        element.innerText = area;
+      }
+    </script>
+  </body>
+</html>
